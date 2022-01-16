@@ -29,7 +29,7 @@ const TransactionCard = ({
       <div className="flex flex-col items-center w-full mt-3">
         <div className="w-full mb-6 p-2">
           <a
-            href={`https://ropstren.etherscan.io/address/${addressFrom}`}
+            href={`https://ropsten.etherscan.io/address/${addressFrom}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -39,7 +39,7 @@ const TransactionCard = ({
           </a>
 
           <a
-            href={`https://ropstren.etherscan.io/address/${addressTo}`}
+            href={`https://ropsten.etherscan.io/address/${addressTo}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -72,7 +72,7 @@ const TransactionCard = ({
 };
 
 const Transactions = () => {
-  const { currentAccount } = useContext(TransactionContext);
+  const { currentAccount, transactions } = useContext(TransactionContext);
 
   return (
     <div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
@@ -88,7 +88,7 @@ const Transactions = () => {
         )}
 
         <div className="flex flex-wrap justify-center items-center mt-10">
-          {dummyData.reverse().map((transaction, i) => (
+          {transactions.reverse().map((transaction, i) => (
             <TransactionCard key={i} {...transaction} />
           ))}
         </div>
